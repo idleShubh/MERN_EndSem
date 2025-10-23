@@ -54,5 +54,4 @@ The codebase is organized as follows:
   - Hosts static assets and images.
 <!-- End of insert -->
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
-# MERN_EndSem
+Open https://mern-end-9wtwtcmir-idleshubh-gmailcoms-projects.vercel.app/ in your browser to see the app in action.
