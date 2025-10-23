@@ -2,8 +2,6 @@
 
 This app leverages tldraw and the GPT-4 Vision API to transform your wireframe sketches into fully functional HTML with Tailwind styling. It provides an innovative way to rapidly prototype your UI designs by simply drawing them out.
 
-> Note: This version integrates design insights, aiming to improve usability and visual consistency. The inspiration is rooted in a blend of creative design and cutting-edge AI technology.
-
 <img width="1470" height="956" alt="Screenshot 2025-10-24 at 12 29 54 AM" src="https://github.com/user-attachments/assets/4cfcf20a-50cc-4c38-9df3-fed42329a593" />
 
 
