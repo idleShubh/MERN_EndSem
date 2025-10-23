@@ -5,7 +5,7 @@ import "@tldraw/tldraw/tldraw.css";
 import { useEditor } from "@tldraw/tldraw";
 import { getSvgAsImage } from "@/lib/getSvgAsImage";
 import { blobToBase64 } from "@/lib/blobToBase64";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { PreviewModal } from "@/components/PreviewModal";
 
@@ -61,13 +61,13 @@ function ExportButton({ setHtml }: { setHtml: (html: string) => void }) {
         setLoading(true);
         try {
           e.preventDefault();
-          const svg = await editor.getSvg(
+          const result = await editor.getSvgElement(
             Array.from(editor.getCurrentPageShapeIds())
           );
-          if (!svg) {
+          if (!result) {
             return;
           }
-          const png = await getSvgAsImage(svg, {
+          const png = await getSvgAsImage(result.svg, {
             type: "png",
             quality: 1,
             scale: 1,
