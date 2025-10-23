@@ -6,17 +6,25 @@ import { useEditor } from "@tldraw/tldraw";
 import { getSvgAsImage } from "@/lib/getSvgAsImage";
 import { blobToBase64 } from "@/lib/blobToBase64";
 import { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { createPortal } from "react-dom";
 import { PreviewModal } from "@/components/PreviewModal";
 
-const Tldraw = dynamic(async () => (await import("@tldraw/tldraw")).Tldraw, {
-  ssr: false,
-});
+const Tldraw = dynamic(
+  async () => {
+    const tldrawModule = await import("@tldraw/tldraw");
+    return tldrawModule.Tldraw;
+  },
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   const [html, setHtml] = useState<null | string>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const listener = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setHtml(null);
@@ -27,7 +35,11 @@ export default function Home() {
     return () => {
       window.removeEventListener("keydown", listener);
     };
-  });
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
@@ -37,7 +49,7 @@ export default function Home() {
         </Tldraw>
       </div>
       {html &&
-        ReactDOM.createPortal(
+        createPortal(
           <div
             className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center"
             style={{ zIndex: 2000, backgroundColor: "rgba(0,0,0,0.5)" }}
@@ -84,7 +96,7 @@ function ExportButton({ setHtml }: { setHtml: (html: string) => void }) {
           const json = await resp.json();
 
           if (json.error) {
-            alert("Error from open ai: " + JSON.stringify(json.error));
+            alert("Error from OpenAI: " + JSON.stringify(json.error));
             return;
           }
 
