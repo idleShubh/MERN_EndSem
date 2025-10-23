@@ -2,7 +2,7 @@
 
 This app leverages tldraw and the GPT-4 Vision API to transform your wireframe sketches into fully functional HTML with Tailwind styling. It provides an innovative way to rapidly prototype your UI designs by simply drawing them out.
 
-> Note: This version integrates Shubh's design insights, aiming to improve usability and visual consistency. The inspiration is rooted in a blend of creative design and cutting-edge AI technology.
+> Note: This version integrates design insights, aiming to improve usability and visual consistency. The inspiration is rooted in a blend of creative design and cutting-edge AI technology.
 
 <img width="1470" height="956" alt="Screenshot 2025-10-24 at 12 29 54 AM" src="https://github.com/user-attachments/assets/4cfcf20a-50cc-4c38-9df3-fed42329a593" />
 
@@ -13,24 +13,13 @@ This app leverages tldraw and the GPT-4 Vision API to transform your wireframe s
 - The app captures the current canvas as an SVG and converts it to a PNG image.
 - The PNG is sent to GPT-4 Vision with instructions to return a single HTML file, styled with Tailwind CSS.
 
-> Disclaimer: This demo app is for experimental purposes only. It does not include authentication, so deploying it publicly may lead to unforeseen costs. Use it for prototyping and learning.
 
 ## Getting Started
 
-This is a Next.js app. To get started, follow the commands below in the root directory of the project. You will need an OpenAI API key with access to the GPT-4 Vision API.
+This is a Next.js app. To get started, follow the commands below in the root directory of the project. You will need an Gemini API key.
 
 > Requirements: Next.js 14 and Node version greater than 18.17. [Read more here](https://nextjs.org/docs/pages/building-your-application/upgrading/version-14).
 
-```bash
-# Create an environment file with your OpenAI API key
-echo "OPENAI_API_KEY=sk-your-key" > .env.local
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
 
 <!-- Insert new content -->
 ## Project Structure
